@@ -27,9 +27,13 @@ public class MathProxy implements IMath{
         return math.div(x,y);
     }
 
-    public double result(double num1,double num2,char sign)
-    {
-        double res=0;
+    public double result(int val[],char sign[])
+    {   double res=0;
+
+        for(int i=0;i<sign.length;i++)
+         {
+
+         }
         switch(sign) {
             case ('+'):
                 res=math.add(num1,num2);

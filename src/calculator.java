@@ -21,14 +21,27 @@ public class calculator {
         in.close();
 
         //for 2 numbers
-        Matcher matcher = Pattern.compile("\\d+").matcher(expression);
+       /* Matcher matcher = Pattern.compile("\\d+").matcher(expression);
         matcher.find();
         num1 = Integer.valueOf(matcher.group());
         matcher.find();
         num2 = Integer.valueOf(matcher.group());
         System.out.printf("%.2f ",num1);
-        System.out.printf("%.2f \n",num2);
+        System.out.printf("%.2f \n",num2);*/
 
+        //for more numbers
+        values= new int[10];
+        Matcher matcher = Pattern.compile("\\d+").matcher(expression);
+        int countValues=0;
+        //System.out.printf("%b ",matcher.find());
+        while(matcher.find()==true){
+            values[countValues] = Integer.valueOf(matcher.group());
+            countValues++;
+        }
+        /*for(int i=0;i<countValues;i++)
+        {
+            System.out.printf("%d ",values[i]);
+        }*/
 
         signs=new char[10];
         char expr[]=expression.toCharArray();
@@ -40,24 +53,14 @@ public class calculator {
                 countSigns++;
             }
         }
-        //System.out.println(Arrays.toString(signs));
+       // System.out.println(Arrays.toString(signs));
 
         IMath p=new MathProxy();
-        double res = p.result(num1,num2,signs[0]);
+        double res = p.result(values,signs);
         System.out.printf("%.2f",res);
 
 
-        //for more numbers
-        /*values= new int[10];
-        Matcher matcher = Pattern.compile("\\d+").matcher(expression);
-        int ii=0;
-        while(matcher.find())
-            values[ii] = Integer.valueOf(matcher.group());ii++;
 
-        for(int i=ii;i>0;i--)
-        {
-            System.out.printf("%d ",values[i]);
-        }*/
 
         //System.out.print("How old are you? Type here: ");
         //age=in.nextInt();

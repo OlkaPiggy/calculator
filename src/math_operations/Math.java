@@ -10,7 +10,7 @@ public class Math implements IMath{
     public double div(double x, double y)
     {return x / y;}
 
-    public double result(double n1,double n2,char s){
+    public double result(int val[],char s[]){
         return 0;
     }
 }
